@@ -296,3 +296,44 @@ Hаправете сравнение между двата интерфейса 
 
                              
 ![image](https://github.com/arndv/5/assets/125039034/6be5e5d5-8f91-4cb0-a5be-85552c54a964)
+                             
+            List<int> list = Console.ReadLine()
+                .Split(", ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .Where(x => x % 2 == 0)
+                .OrderByDescending(x => x)
+                .ToList();
+
+            Console.WriteLine(string.Join(", ", list));
+    
+    
+Дайте пример за функция, която проверява дадено число X дали е по-малко от числото 10. След изпълнението на функцията на конзолата да се отпечата като резултат само True или False.
+
+        Func<int, bool> func = (x) => x < 10;
+        Console.WriteLine(func(5));
+                                             
+                                             
+![image](https://github.com/arndv/5/assets/125039034/d37dac3c-1290-4d68-9039-a0f36fc2ca67)
+                                             
+Инициализираме списък с цели числа.
+Сортираме числата от колекцията в низходящ ред и пропускаме първите три числа от тях.
+Очакван резултат: 20, 15, 1, 5, 7, 18, 66
+Списъкът с числа си остава същия, защото linq изразите връщат нов списък, а в дадения код не се презаписва новата подредба на числата върху предишния списък с числа.   
+                                             
+                                             
+Напишете програма на C#, която да дефинира делегат, който може да приема метод, който сумира две реални числа. Накрая резултатът да се отпечата на конзолата.
+
+    public delegate double SumDelegate(double firstNumber, double secondNumber);
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SumDelegate del = new SumDelegate(Sum);
+            Console.WriteLine(del(2.5, 3.14));
+        }
+
+        private static double Sum(double firstNumber, double secondNumber)
+        {
+            return firstNumber + secondNumber;
+        }
+    }                                            
