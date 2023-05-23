@@ -336,4 +336,69 @@ Hаправете сравнение между двата интерфейса 
         {
             return firstNumber + secondNumber;
         }
-    }                                            
+    }                                           
+          
+                                             
+Опишете какво представляват референциите към функции/методи в C#, като поставите липсващите думи в текста:
+
+Ламбда функциите могат да бъдат записани в променливи от тип [делегат]. [Делегатите ] представляват специален тип [променливи], които съдържат [функции]. Типовете Func и Action са [generic ] и съдържат: на последна позиция [типа на връщаната стойност], а на първите позиции се задават [типовете на параметрите] на функциите. Променливите от тези типове са [референции] към функции. 
+
+                                             
+На конзолата ще ви бъдат подадени цели числа записани на един ред и разделени с интервал. Например: 5 7 12 56 24 3 8 
+Напишете собствена функция на C#, която да намира сумата на тези числа. 
+Накрая отпечатайте сбора на числата.
+
+ string input = Console.ReadLine();
+            int[] nums = input.Split().Select(int.Parse).ToArray();
+            Func<int[], int> sum = (x) =>
+            {
+                int sum = 0;
+                foreach (var item in x)
+                {
+                    sum += item;
+                }
+                return sum;
+            };
+            Console.WriteLine(sum(nums));                                             
+
+ 
+    
+Дайте пример за имплементация на интерфейса IEnumerable<T> в C#.
+
+
+    class MyList<T> : IEnumerable<T>
+    {
+        private T[] items;
+        public int Count { get; private set; }        
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < this.Count; i++)
+            {
+                yield return this.items[i];
+            }
+            //foreach (T item in this.items)
+            //{
+            //    yield return item;
+            //}
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+    }
+}
+                                           
+                                           
+Посочете кое от твърденията е вярно за изключенията:
+                                           
+Изключенията са уведомление за дадено събитие, нарушаващо нормалната работа на една програма., Когато възникне изключение, конкрет­ното състояние на програмата се запазва и се търси обработчик на изключението (exception handler)., Изключенията се предизвикват или "хвърлят" (throw an exception) от програмен код, който трябва да сигнализира на изпълняващата се прог­рама за грешка или необичайна ситуация.                                            
+![image](https://github.com/arndv/5/assets/125039034/0b276c40-5ef4-47f8-bfca-cb7389f16d28)
+
+![image](https://github.com/arndv/5/assets/125039034/fb376c9c-9f1a-4b76-af0f-e73acb8fce05)
+                                           
+![image](https://github.com/arndv/5/assets/125039034/74e2a4b2-8e41-42fc-8d59-39fbe387e0cb)
+ 
+![image](https://github.com/arndv/5/assets/125039034/a96925ad-3791-4ebb-9b00-fdfa5b114deb)
+                                           
